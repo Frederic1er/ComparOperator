@@ -1,13 +1,13 @@
 <?php
 
 class TourOperatorManager {
-    
-    private $db;
 
-    public function __construct($db)
-    {
-        $this->db = $db;
-    }
+  private $db;
+
+  public function __construct($db)
+  {
+    $this->db = $db;
+  }
 
     public function add(TourOperator $tourOperator)
     {
@@ -17,7 +17,7 @@ class TourOperatorManager {
       $q->bindValue(':name', $tourOperator->getName());
       $q->bindValue(':link', $tourOperator->getLink());
       $q->bindValue(':grade', $tourOperator->getGrade());
-      $q->bindValue(':is_premium', $tourOperator->isIs_Premium());
+      $q->bindValue(':is_premium', $tourOperator->isIsPremium());
       
       $q->execute();
       
@@ -34,7 +34,7 @@ class TourOperatorManager {
         $q->execute();
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
-
+          
             array_push($tourop,new TourOperator($donnees));
 
         }

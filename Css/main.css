@@ -1,0 +1,13 @@
+body {
+    background-image: url("../image/image.jpg");
+    
+    height: 100vh;
+     
+    
+    }
+    #card{
+        margin-top: 10px;
+        padding: auto;
+        display: block;
+        justify-content: space-between;
+    }

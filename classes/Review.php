@@ -1,18 +1,22 @@
 <?php
+class Review{
+    
+    
+    protected  $id;
+    protected  $message;
+    protected  $author;
+    protected $id_tour_operator;
+    
+   
 
-class Review {
 
-    private $id;
-    private $message;
-    private $author;
-    private $tourOperator;
+    /* CONSTRUCT */
 
     public function __construct(array $donnees){
         $this->hydrate($donnees);
     }
-    
-        
-// Hydratation de données 
+
+    /* HYDRATE */
 
     public function hydrate($donnees){
         foreach ($donnees as $key =>$value) {
@@ -26,39 +30,36 @@ class Review {
         }
     }
 
-    public function getId(){
+    public function getId (){
         return $this->id;
     }
 
-    public function setId($id){
-        return $this->id = $id;
+    public function setId ($id){
+        $this->id = $id;
     }
 
-    public function getMessage(){
+
+    public function getMessage (){
         return $this->message;
-
     }
 
-    public function setMessage($message){
-        return $this->message = $message;
+    public function setMessage ($message){
+        $this->message = $message;
     }
-
-    public function getAuthor(){
+    public function getAuthor (){
         return $this->author;
     }
 
-    public function setAuthor($author){
-        return $this->author = $author;
+    public function setAuthor ($author){
+        $this->author = $author;
     }
 
-    public function gettourOperator(){
-        return $this->tourOperator;
+
+    public function getId_Tour_Operator (){
+        return $this->id_tour_operator;
     }
 
-    public function settourOperator($tourOperator){
-        return $this->tourOperator = $tourOperator;
+    public function setId_Tour_Operator ($id_tour_operator){
+        $this->id_tour_operator = $id_tour_operator;
     }
-
-    
-
 }

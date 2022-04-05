@@ -46,7 +46,7 @@ class DestinationManager {
     return $desti;
   }
 
-    /* JOIN DESTINATION W/ TO */
+    /* JOIN DESTINATIONS W/ TO */
 
   public function getDestibyTo(Destination $destination)
   {
@@ -55,7 +55,7 @@ class DestinationManager {
       
     
     $q->execute([$destination->getIdTourOperator()]);
-    $To = $q->fetch(PDO::FETCH_ASSOC);
+    $To = $q->fetchAll(PDO::FETCH_ASSOC);
     $test = new TourOperator($To);
 
     return $test;

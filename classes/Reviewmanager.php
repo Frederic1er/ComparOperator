@@ -35,7 +35,7 @@ class ReviewManager {
     $q = $this->db->prepare('SELECT * FROM destinations WHERE id_tour_operator=?');
       
     
-    $q->execute([$review->gettourOperator()]);
+    $q->execute([$review->getId_Tour_Operator()]);
     $rev = $q->fetch(PDO::FETCH_ASSOC);
     $testi = new Review($rev);
 

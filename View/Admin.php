@@ -46,10 +46,10 @@
 
 <!-- FORM 1 CREATE TO-->
 
-<h3>Create a new TO :</h3>
+<h3>Créer un TO :</h3>
 <form action="Admin.php" method="post">
     <div class="labels">
-        <label>* Name</label>
+        <label>* Nom</label>
         <input type="text" name="name" placeholder="TripAwsome.." required>
     </div>
     <div class="labels">
@@ -57,7 +57,7 @@
         <input type="number" name="grade" min="0" max="5">
     </div>
     <div class="labels">
-        <label>* link</label>
+        <label>* Liens</label>
         <input type="text" name="link" placeholder="https://..." required>
     </div>
     <div class="labels">
@@ -65,20 +65,20 @@
         <input type="number" name="premium" min="0" max="1">
     </div>
 
-    <input type="submit" id='submit' value='Submit'>
+    <input type="submit" id='submit' value='Envoyer'>
 
 </form>
 
 <!-- FORM 2 CREATE DESTI -->
 
-<h3>Create a new destination :</h3>
+<h3>Créer une nouvelle destination :</h3>
 <form action="Admin.php" method="post">
     <div class="labels">
-        <label>* Location</label>
+        <label>* Lieux</label>
         <input type="text" name="location" placeholder="Venise.." required>
     </div>
-    <select name="to">
-            <option value="">choose a TO</option>
+    <select nom="to">
+            <option value="">Choisir un TO</option>
 
             <?php foreach ($allTourOp as $rowTourop){ ?>
                 <option value="<?=$rowTourop->getId()?>"><?=$rowTourop->getName()?></option>
@@ -89,7 +89,7 @@
         <input type="text" name="description" placeholder="Lorem Ipsum.." required>
     </div>
     <div class="labels">
-        <label>* Price</label>
+        <label>*Prix</label>
         <input type="text" name="price" placeholder="700$" required>
     </div>
     <div class="labels">
@@ -97,21 +97,21 @@
         <input type="text" name="image" placeholder="/IMG/.." required>
     </div>
 
-    <input type="submit" id='submit' value='Submit'>
+    <input type="submit" id='submit' value='Envoyer'>
 
 </form>
 
 <!-- FORM 3 CREATE ALL -->
-<h3>Create a new Trip :</h3>
+<h3>Créer un nouveau voyage :</h3>
 
 <form action="Admin.php" method="post" class="select">
                     
     <div class="labels">
-        <label>* Location :</label>
+        <label>* Lieux :</label>
     </div>
     <div class="rightTab">
-        <select name="location">
-            <option value="">Please choose a location</option>
+        <select nom="location">
+            <option value="">Choisissez un lieux</option>
 
             <?php foreach ($allDestinations as $rowDestination) { ?>
 
@@ -126,8 +126,8 @@
         <label >* TO :</label>
     </div>
     <div class="rightTab">
-        <select name="to">
-            <option value="">Please choose a TO</option>
+        <select nom="to">
+            <option value="">Choisissez un TO</option>
             <?php foreach ($allTourOp as $rowTourOp) { ?>
                 <option value="<?=intval($rowTourOp->getId())?>"><?=$rowTourOp->getName()?></option>
 
@@ -138,12 +138,12 @@
     
 
     <div class="labels">
-        <label for="price">* Price :</label>
+        <label for="price">* Prix :</label>
     </div>
     <div class="rightTab">
         <input type="text" name="price" required placeholder="600$">
     </div> 
-        <input type="submit" id='submit' value='Submit'>
+        <input type="submit" id='submit' value='Envoyer'>
 
 </form>
 
