@@ -13,10 +13,12 @@ class DestinationManager {
   {
   
 
-    $q = $this->db->prepare('INSERT INTO destinations(location, price,  description, id_tour_operator) VALUES(:location, :price,  :description, :id_tour_operator)');
+    $q = $this->db->prepare('INSERT INTO destinations(location, price, images, description, id_tour_operator) VALUES(:location, :price, :images, :description, :id_tour_operator)');
     
     $q->bindValue(':location', $destination->getLocation());
     $q->bindValue(':price', $destination->getPrice());
+    $q->bindValue(':images', $destination->getImages());
+    $q->bindValue(':description', $destination->getDescription());
     $q->bindValue(':id_tour_operator', $tour_operator->getId());
    
     $q->execute();
@@ -53,7 +55,7 @@ class DestinationManager {
       
     
     $q->execute([$destination->getIdTourOperator()]);
-    $To = $q->fetch(PDO::FETCH_ASSOC);
+    $To = $q->fetchAll(PDO::FETCH_ASSOC);
     $test = new TourOperator($To);
 
     return $test;
