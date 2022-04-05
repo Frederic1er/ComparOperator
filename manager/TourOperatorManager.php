@@ -17,7 +17,7 @@ class TourOperatorManager {
       $q->bindValue(':name', $tourOperator->getName());
       $q->bindValue(':link', $tourOperator->getLink());
       $q->bindValue(':grade', $tourOperator->getGrade());
-      $q->bindValue(':is_premium', $tourOperator->isIsPremium());
+      $q->bindValue(':is_premium', $tourOperator->isIs_Premium());
       
       $q->execute();
       
