@@ -5,9 +5,9 @@ class TourOperator {
     private $id;
     private $name;
     private $link;
-    private $gradeCount;
-    private $gradeTotal;
-    private $isPremium;
+    private $grade_Count;
+    private $grade_Total;
+    private $is_Premium;
 
     public function __construct(array $donnees){
         $this->hydrate($donnees);
@@ -54,27 +54,27 @@ class TourOperator {
     }
 
     public function getGrade (){
-        return $this->gradeCount;
+        return $this->grade_Count;
     }
 
-    public function setGrade ($gradeCount){
-        $this->gradeCount = $gradeCount;
+    public function setGrade ($grade_Count){
+        $this->grade_Count = $grade_Count;
     }
 
-    public function getgradeTotal(){
-        return $this->gradeTotal;
+    public function getgrade_Total(){
+        return $this->grade_Total;
     }
 
-    public function setgradeTotal($gradeTotal){
-        return $this->gradeTotal = $gradeTotal;
+    public function setgradeTotal($grade_Total){
+        return $this->grade_Total = $grade_Total;
     }
 
-    public function isIsPremium (){
-        return $this->isPremium;
+    public function isIs_Premium (){
+        return $this->is_Premium;
     }
 
-    public function setIs_premium ($isPremium){
-        $this->isPremium = $isPremium;
+    public function setIs_premium ($is_Premium){
+        $this->is_Premium = $is_Premium;
     }
     
 }

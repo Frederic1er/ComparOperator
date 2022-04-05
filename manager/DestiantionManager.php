@@ -13,10 +13,12 @@ class DestinationManager {
   {
   
 
-    $q = $this->db->prepare('INSERT INTO destinations(location, price,  description, id_tour_operator) VALUES(:location, :price,  :description, :id_tour_operator)');
+    $q = $this->db->prepare('INSERT INTO destinations(location, price, images, description, id_tour_operator) VALUES(:location, :price, :images, :description, :id_tour_operator)');
     
     $q->bindValue(':location', $destination->getLocation());
     $q->bindValue(':price', $destination->getPrice());
+    $q->bindValue(':images', $destination->getImages());
+    $q->bindValue(':description', $destination->getDescription());
     $q->bindValue(':id_tour_operator', $tour_operator->getId());
    
     $q->execute();
@@ -26,7 +28,7 @@ class DestinationManager {
     ]);
   }
 
-  /* recuperer les destiantions puis les afficher */
+  /* RECUPERER DESTI POUR LES AFFICHER */
 
   public function getList()
   {
@@ -44,7 +46,7 @@ class DestinationManager {
     return $desti;
   }
 
-    /* Ajouter les destinations */
+    /* JOIN DESTINATION W/ TO */
 
   public function getDestibyTo(Destination $destination)
   {
@@ -76,7 +78,7 @@ class DestinationManager {
     return $destinationCollection;
   }
 
-  /* Méthode pour eviter d'avoir des doublons*/
+  /* METHODE POUR PAS AVOIR DE DOUBLON */
 
   public function getListGroupByName()
   {
