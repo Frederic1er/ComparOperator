@@ -16,8 +16,7 @@
    <?php foreach ($allDestinations as $rowDestination){?>
   <div class=cartes>
  
-  <div class="row row-cols ">
-            <div class="card" style="width: 20rem;">
+  <div class="card" style="width: 20rem;">
     
     <img class="card-img-top" src="<?php echo $rowDestination->getImages()?>" alt="Card image cap">
         <div class="card-body">
@@ -29,7 +28,7 @@
     
   </div>
 </div>
-<div class="row row col 4"></div>
+<div class="col-1"></div>
 <?php  } ?>
 </div>
 
