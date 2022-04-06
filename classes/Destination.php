@@ -81,4 +81,6 @@ class Destination {
         $this->id_tour_operator = $id_tour_operator;
     }
 
+
+
 }

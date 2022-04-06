@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+@import 'mixin';
+@import 'navbar';
+@import 'card-index';
+@import 'cards-admin';
+@import 'header';
+@import 'card-list-to';
+
+html {
+  cursor : url(/IMG/laptop.png);
+}
+
+body {
+  background-color: #fad8ae;
+  text-align: center;
+}
+
+h1, h2, h3, h4, a {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  padding: 1rem;
+}
+
+/***************** INDEX **************/
+
+/* ABOUT */
+
+main { 
+  position: relative; z-index: 1;
+  padding: 2em 1em 4em;
+  margin: 0 auto;
+}
+
+.about {
+  max-width: 31rem;
+  display: inline-block;
+
+  img{
+    width:60%;
+  }
+}
+
+/* CARDS */
+
+.card-index {
+  display: flex;
+
+  .marg{
+    margin: 1rem;
+  }
+}
+
+/* POC SALES */
+
+.pt-5 {
+  background-color: blanchedalmond;
+}
+
+/************ LIST TO *****************/
+
+/* CARDS */
+
+.listTo {
+  width: 60rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+/**************** BACK TO TOP BTN *************/
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+}
+
+/* FOOTER */
+
+.footer {
+  background-color: blanchedalmond;
+}
+
+.copyright {
+  background-color: #fad8ae;
+}
+
+#button-addon1 {
+  color: #ffc371;
+}
+
+.form-control::placeholder {
+  font-size: 0.95rem;
+  color: #aaa;
+  font-style: italic;
+}
+
+.form-control.shadow-0:focus {
+  box-shadow: none;
+}
