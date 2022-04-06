@@ -1,19 +1,20 @@
-<?php
+<?php 
 
 class TourOperator {
+    
+    protected $id;
+    protected  $name;
+    protected  $link;
+    protected  $grade;
+    protected  $is_premium;
 
-    private $id;
-    private $name;
-    private $link;
-    private $gradeCount;
-    private $gradeTotal;
-    private $isPremium;
+    /* CONSTRUCT */
 
     public function __construct(array $donnees){
         $this->hydrate($donnees);
     }
 
-  // Hydratation
+    /* HYDRATE */
 
     public function hydrate($donnees){
         foreach ($donnees as $key =>$value) {
@@ -26,9 +27,6 @@ class TourOperator {
         }
         }
     }
- 
-// Getter Setter
-
 
     public function getId (){
         return $this->id;
@@ -55,27 +53,20 @@ class TourOperator {
     }
 
     public function getGrade (){
-        return $this->gradeCount;
+        return $this->grade;
     }
 
-    public function setGrade ($gradeCount){
-        $this->gradeCount = $gradeCount;
-    }
-
-    public function getgradeTotal(){
-        return $this->gradeTotal;
-    }
-
-    public function setgradeTotal($gradeTotal){
-        return $this->gradeTotal = $gradeTotal;
+    public function setGrade ($grade){
+        $this->grade = $grade;
     }
 
     public function isIsPremium (){
-        return $this->isPremium;
+        return $this->is_premium;
     }
 
-    public function setIs_premium ($isPremium){
-        $this->isPremium = $isPremium;
+    public function setIs_premium ($is_premium){
+        $this->is_premium = $is_premium;
     }
+
     
 }

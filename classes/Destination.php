@@ -5,17 +5,19 @@ class Destination {
     
     protected $id;
     protected $location;
+    protected $images;
+    protected $description;
     protected $price;
     protected $id_tour_operator;
 
 
-    // Le contructor
+    /* CONSTRUCT */
 
     public function __construct(array $donnees){
         $this->hydrate($donnees);
     }
 
-    // L'Hydratation
+    /* HYDRATE */
 
     public function hydrate($donnees){
         foreach ($donnees as $key =>$value) {
@@ -29,7 +31,7 @@ class Destination {
         }
     }
 
-    // Les Getter et Setter
+    /* GETTER SETTER */
 
     public function getId (){
         return $this->id;
@@ -39,6 +41,21 @@ class Destination {
         $this->id = $id;
     }
 
+    public function getImages (){
+        return $this->images;
+    }
+
+    public function setImages ($images){
+        $this->images = $images;
+    }
+
+    public function getDescription (){
+        return $this->description;
+    }
+
+    public function setDescription ($description){
+        $this->description = $description;
+    }
 
     public function getLocation (){
         return $this->location;
@@ -63,5 +80,7 @@ class Destination {
     public function setId_tour_operator ($id_tour_operator){
         $this->id_tour_operator = $id_tour_operator;
     }
+
+
 
 }
