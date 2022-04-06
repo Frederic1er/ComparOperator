@@ -96,6 +96,12 @@ class DestinationManager {
       return $destinations;
   }
 
+  public function deleteDestination(){
+
+    $q = $this->db->prepare('DELETE FROM membres WHERE `membres`.`id` = ? ');
+
+    
+  }
   /* AJOUTER INFO FORM SELECT */
 
   

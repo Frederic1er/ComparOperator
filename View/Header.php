@@ -6,6 +6,7 @@
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,34 +15,37 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <link rel="stylesheet"   href="/ComparOperator/Css/main.css"> 
+    <link rel="stylesheet" href="/comparoperator/Css/main.css">
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-navbar navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">RF operator</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.php">Acceuil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="">destinations</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">nos meilleurs offres</a>
-                        </li>
-                       
-                    </ul>
-                    <ol>
-                        <li>
-                            <button type="button" class="btn btn-link">s'inscrire</button>
-                            <div class="btn btn-primary">se connecter</div>
-                        </li>
-                    </ol>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">RF operator</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/comparoperator/index.php">Acceuil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/comparoperator/View/voyage.php">destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">nos meilleurs offres</a>
+                    </li>
+
+                </ul>
+                <ol>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/comparoperator/Process/Inscription.php">s'inscrire</a>
+                        <div class="btn btn-primary">se connecter</div>
+                    </li>
+                </ol>
             </div>
-        </nav>
+        </div>
+    </nav>
+
+    

@@ -1,4 +1,7 @@
 <?php
+
+
+require_once("../Process/Connexion.php");
 session_start();
 
 
@@ -13,13 +16,13 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['pseudo'])
     $pass = password_hash($_POST['pass'], PASSWORD_BCRYPT);
 
     // On se connecte à la base
-    require('./utils/db_connect.php');
+    require('../Process/Autoload.php');
 
     // On écrit la requête
     $sql = 'INSERT INTO `membres`(`email`, `password`, `pseudo`) VALUES (:email, :password, :pseudo);';
 
     // On prépare la requête
-    $query = $db->prepare($sql);
+    $query = $pdo->prepare($sql);
 
     // On injecte les valeurs
     $query->bindValue(':email', $email, PDO::PARAM_STR);
@@ -30,12 +33,12 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['pseudo'])
     $query->execute();
 
     // On redirige vers la page d'accueil
-    header('Location: index.php');
+    header('Location: /comparoperator/index.php');
 } else {
     echo 'Tous les champs sont obligatoires';
 }
 
-include('./View/Header.php');
+include('../View/Header.php');
 ?>
 <div class="col-12 my-1">
     <h1>Inscription</h1>
@@ -56,4 +59,4 @@ include('./View/Header.php');
     </form>
 </div>
 <?php
-include('./View/Footer.php');
+include('../View/Footer.php');
