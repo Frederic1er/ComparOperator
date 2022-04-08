@@ -33,7 +33,7 @@ if (isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['pseudo'])
     $query->execute();
 
     // On redirige vers la page d'accueil
-    header('Location: /comparoperator/index.php');
+    header('Location: /index.php');
 } else {
     echo 'Tous les champs sont obligatoires';
 }

@@ -138,7 +138,7 @@ include './View/Header.php';
 
   foreach ($allDestinations as $rowDestination) {
   ?>
-    <li class="booking-card" style="background-image:url(<?= $rowDestination->getImage() ?>)">
+    <li class="booking-card" style="background-image:url(<?= $rowDestination->getImages() ?>)">
       <div class="book-container">
         <div class="content">
           <a href='/ComparOperator/View/ListTo.php?destination=<?= $rowDestination->getLocation() ?>'><button class="btn">Reserver</button></a>
@@ -201,5 +201,5 @@ include './View/Header.php';
 <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
 
 <?php
-include '../View/Footer.php';
+include './View/Footer.php';
 ?>

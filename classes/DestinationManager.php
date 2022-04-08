@@ -1,6 +1,7 @@
 <?php
 
-class DestinationManager {
+class DestinationManager
+{
 
   private $db;
 
@@ -11,18 +12,18 @@ class DestinationManager {
 
   public function add(Destination $destination, TourOperator $tour_operator)
   {
-  
+
 
     $q = $this->db->prepare('INSERT INTO destinations(location, price, images, description, id_tour_operator) VALUES(:location, :price, :images, :description, :id_tour_operator)');
-    
+
     $q->bindValue(':location', $destination->getLocation());
     $q->bindValue(':price', $destination->getPrice());
     $q->bindValue(':images', $destination->getImages());
     $q->bindValue(':description', $destination->getDescription());
     $q->bindValue(':id_tour_operator', $tour_operator->getId());
-   
+
     $q->execute();
-    
+
     $destination->hydrate([
       'id' => $this->db->lastInsertId()
     ]);
@@ -33,27 +34,26 @@ class DestinationManager {
   public function getList()
   {
     $desti = [];
-    
+
     $q = $this->db->prepare('SELECT * FROM destinations');
     $q->execute();
-    
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-    {
+
+    while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
       echo '<br>';
-      array_push($desti, new Destination ($donnees));
+      array_push($desti, new Destination($donnees));
     }
-    
+
     return $desti;
   }
 
-    /* JOIN DESTINATIONS W/ TO */
+  /* JOIN DESTINATIONS W/ TO */
 
   public function getDestibyTo(Destination $destination)
   {
 
     $q = $this->db->prepare('SELECT * FROM tour_operators WHERE id=?');
-      
-    
+
+
     $q->execute([$destination->getIdTourOperator()]);
     $To = $q->fetchAll(PDO::FETCH_ASSOC);
     $test = new TourOperator($To);
@@ -67,8 +67,8 @@ class DestinationManager {
     $destinationCollection = [];
 
     $q = $this->db->prepare('SELECT * FROM destinations WHERE location=?');
-      
-    
+
+
     $q->execute([$location]);
     $destinations = $q->fetchAll(PDO::FETCH_ASSOC);
     foreach ($destinations as $destinationArray) {
@@ -89,21 +89,16 @@ class DestinationManager {
 
     $q->execute();
 
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-    {
-      array_push($destinations, new Destination ($donnees));
+    while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
+      array_push($destinations, new Destination($donnees));
     }
-      return $destinations;
+    return $destinations;
   }
 
-  public function deleteDestination(){
+  public function deleteDestination()
+  {
 
     $q = $this->db->prepare('DELETE FROM membres WHERE `membres`.`id` = ? ');
-
-    
   }
   /* AJOUTER INFO FORM SELECT */
-
-  
-
 }

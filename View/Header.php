@@ -15,7 +15,7 @@ include __DIR__ . '/../env.php';
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="/comparoperator/Css/main.css">
+    <link rel="stylesheet" href="/Css/main.css">
 </head>
 
 <body>
@@ -38,12 +38,17 @@ include __DIR__ . '/../env.php';
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Nos meilleurs offres</a>
                     </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link active" href="<?= $rootFolder ?>/View/Admin.php">Admin</a>
+
+                    </li>
 
                 </ul>
                 <ol>
                     <li class="nav-item">
 
-                        <div class="btn btn-primary">Se connecter</div>
+
 
                         <a class="nav-link active" href="<?= $rootFolder ?>/Process/Inscription.php">s'inscrire</a>
                         <div class="btn btn-primary">se connecter</div>
