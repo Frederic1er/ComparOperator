@@ -1,8 +1,8 @@
 <?php
 
-require_once('./Process/Connexion.php');
-include './Process/Autoload.php';
-include './View/Header.php';
+require_once(__DIR__.'/Process/Connexion.php');
+include __DIR__. '/Process/Autoload.php';
+include __DIR__. '/View/Header.php';
 
 ?>
 
@@ -138,7 +138,7 @@ include './View/Header.php';
 
   foreach ($allDestinations as $rowDestination) {
   ?>
-    <li class="booking-card" style="background-image:url(<?= $rowDestination->getImage() ?>)">
+    <li class="booking-card" style="background-image:url(<?= $rowDestination->getImages() ?>)">
       <div class="book-container">
         <div class="content">
           <a href='/ComparOperator/View/ListTo.php?destination=<?= $rowDestination->getLocation() ?>'><button class="btn">Reserver</button></a>
