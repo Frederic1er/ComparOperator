@@ -31,17 +31,17 @@
                         <a class="nav-link active" aria-current="page" href="/comparoperator/index.php">Acceuil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/comparoperator/View/voyage.php">destinations</a>
+                        <a class="nav-link active" href="/comparoperator/View/voyage.php">Destinations</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">nos meilleurs offres</a>
+                        <a class="nav-link active" href="#">Nos meilleurs offres</a>
                     </li>
 
                 </ul>
                 <ol>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/comparoperator/Process/Inscription.php">s'inscrire</a>
-                        <div class="btn btn-primary">se connecter</div>
+                        <a class="nav-link active" href="/comparoperator/Process/Inscription.php">S'inscrire</a>
+                        <div class="btn btn-primary">Se connecter</div>
                     </li>
                 </ol>
             </div>
