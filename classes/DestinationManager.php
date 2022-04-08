@@ -46,7 +46,31 @@ class DestinationManager
     return $desti;
   }
 
+<<<<<<< HEAD
   /* JOIN DESTINATIONS W/ TO */
+=======
+  public function getOneBy($param)
+  {
+      if (is_int($param)) {
+
+        $q = $this->db->prepare('SELECT * FROM destinations WHERE id=?');
+          
+        
+        $q->execute([$param]);
+        $destination = $q->fetch(PDO::FETCH_ASSOC);
+        return new Destination($destination);
+      }else{
+        $q = $this->db->prepare('SELECT * FROM destinations WHERE location=?');
+          
+        
+        $q->execute([$param]);
+        $destination = $q->fetch(PDO::FETCH_ASSOC);
+        return new Destination($destination);
+      }
+
+  }
+    /* JOIN DESTINATIONS W/ TO */
+>>>>>>> 3418f17f71450e884daa9dd0844f9da07cc51990
 
   public function getDestibyTo(Destination $destination)
   {

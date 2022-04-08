@@ -1,8 +1,8 @@
 <?php
 
-require_once('./Process/Connexion.php');
-include './Process/Autoload.php';
-include './View/Header.php';
+require_once(__DIR__.'/Process/Connexion.php');
+include __DIR__. '/Process/Autoload.php';
+include __DIR__. '/View/Header.php';
 
 ?>
 

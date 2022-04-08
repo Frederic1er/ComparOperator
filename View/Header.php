@@ -40,7 +40,11 @@ include __DIR__ . '/../env.php';
                     </li>
                     <li class="nav-item">
 
+<<<<<<< HEAD
                         <a class="nav-link active" href="<?= $rootFolder ?>/View/Admin.php">Admin</a>
+=======
+                        <a class="nav-link active" href="<?= $rootFolder ?>/Admin.php">Admin</a>
+>>>>>>> 3418f17f71450e884daa9dd0844f9da07cc51990
 
                     </li>
 
@@ -51,7 +55,7 @@ include __DIR__ . '/../env.php';
 
 
                         <a class="nav-link active" href="<?= $rootFolder ?>/Process/Inscription.php">s'inscrire</a>
-                        <div class="btn btn-primary">se connecter</div>
+
 
                     </li>
                 </ol>

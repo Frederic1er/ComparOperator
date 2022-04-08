@@ -1,8 +1,14 @@
 <?php
 
+<<<<<<< HEAD
 require_once('./Process/Connexion.php');
 include './Process/Autoload.php';
 include './View/Header.php';
+=======
+require_once (__DIR__.'/Process/Connexion.php');
+    include './Process/Autoload.php';
+    include './View/Header.php';
+>>>>>>> 3418f17f71450e884daa9dd0844f9da07cc51990
 
 $destination = new DestinationManager($pdo);
 $allDestinations = $destination->getListGroupByName();

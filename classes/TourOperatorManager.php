@@ -22,6 +22,7 @@ class TourOperatorManager
 
     $q->execute();
 
+<<<<<<< HEAD
     $tourOperator->hydrate([
       'id' => $this->db->lastInsertId()
     ]);
@@ -30,6 +31,24 @@ class TourOperatorManager
   public function getList()
   {
     $tourop = [];
+=======
+        return $tourop;
+    }
+    public function DeleteTO(TourOperator $tour_operator){
+      $q= $this->db->prepare('DELETE  FROM tour_operators WHERE id= :id');
+      $q->bindValue(':id', $tour_operator->getId());
+      $q->execute();
+    }
+  
+    /* METHODE POUR UPDATE UN TO PREMIUM OU PAS */
+  
+    public function UpdateTO(TourOperator $tour_operator){
+      $q= $this->db->prepare('UPDATE tour_operators  SET is_premium=:is_premium WHERE id= :id');
+      $q->bindValue(':id', $tour_operator->getId());
+      $q->bindValue(':is_premium', $tour_operator->isIsPremium ());
+      $q->execute();
+    }
+>>>>>>> 3418f17f71450e884daa9dd0844f9da07cc51990
 
     $q = $this->db->prepare('SELECT tour_operators.* FROM `tour_operators`');
     $q->execute();
