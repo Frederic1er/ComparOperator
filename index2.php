@@ -1,6 +1,6 @@
 <?php
 
-require_once('./Process/Connexion.php');
+require_once (__DIR__.'/Process/Connexion.php');
     include './Process/Autoload.php';
     include './View/Header.php';
 

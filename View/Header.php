@@ -38,6 +38,11 @@ include __DIR__ . '/../env.php';
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Nos meilleurs offres</a>
                     </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link active" href="<?= $rootFolder ?>/Admin.php">Admin</a>
+
+                    </li>
 
                 </ul>
                 <ol>
@@ -46,7 +51,7 @@ include __DIR__ . '/../env.php';
                         <div class="btn btn-primary">Se connecter</div>
 
                         <a class="nav-link active" href="<?= $rootFolder ?>/Process/Inscription.php">s'inscrire</a>
-                        <div class="btn btn-primary">se connecter</div>
+
 
                     </li>
                 </ol>

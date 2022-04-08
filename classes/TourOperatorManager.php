@@ -41,6 +41,19 @@ class TourOperatorManager {
 
         return $tourop;
     }
-
+    public function DeleteTO(TourOperator $tour_operator){
+      $q= $this->db->prepare('DELETE  FROM tour_operators WHERE id= :id');
+      $q->bindValue(':id', $tour_operator->getId());
+      $q->execute();
+    }
+  
+    /* METHODE POUR UPDATE UN TO PREMIUM OU PAS */
+  
+    public function UpdateTO(TourOperator $tour_operator){
+      $q= $this->db->prepare('UPDATE tour_operators  SET is_premium=:is_premium WHERE id= :id');
+      $q->bindValue(':id', $tour_operator->getId());
+      $q->bindValue(':is_premium', $tour_operator->isIsPremium ());
+      $q->execute();
+    }
 
 }
