@@ -38,7 +38,7 @@ include 'Header.php';
 
         <label>TO :</label>
         <select name="to">
-            <option value="">Choisissez un TO</option>
+            <option valudestinationse="">Choisissez un TO</option>
             <?php foreach ($allTourOp as $rowTourOp) { ?>
                 <option value="<?= intval($rowTourOp->getId()) ?>"><?= $rowTourOp->getName() ?></option>
 
