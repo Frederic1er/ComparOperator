@@ -31,17 +31,23 @@ include __DIR__ . '/../env.php';
                         <a class="nav-link active" aria-current="page" href="<?= $rootFolder ?>/index.php">Acceuil</a>
                     </li>
                     <li class="nav-item">
+
                         <a class="nav-link active" href="<?= $rootFolder ?>/View/voyage.php">destinations</a>
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">nos meilleurs offres</a>
+                        <a class="nav-link active" href="#">Nos meilleurs offres</a>
                     </li>
 
                 </ul>
                 <ol>
                     <li class="nav-item">
+
+                        <div class="btn btn-primary">Se connecter</div>
+
                         <a class="nav-link active" href="<?= $rootFolder ?>/Process/Inscription.php">s'inscrire</a>
                         <div class="btn btn-primary">se connecter</div>
+
                     </li>
                 </ol>
             </div>
