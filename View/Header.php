@@ -1,5 +1,5 @@
 <?php
-
+include __DIR__ . '/../env.php';
 
 
 ?>
@@ -28,10 +28,10 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/comparoperator/index.php">Acceuil</a>
+                        <a class="nav-link active" aria-current="page" href="<?= $rootFolder ?>/index.php">Acceuil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/comparoperator/View/voyage.php">destinations</a>
+                        <a class="nav-link active" href="<?= $rootFolder ?>/View/voyage.php">destinations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">nos meilleurs offres</a>
@@ -40,12 +40,10 @@
                 </ul>
                 <ol>
                     <li class="nav-item">
-                        <a class="nav-link active" href="/comparoperator/Process/Inscription.php">s'inscrire</a>
+                        <a class="nav-link active" href="<?= $rootFolder ?>/Process/Inscription.php">s'inscrire</a>
                         <div class="btn btn-primary">se connecter</div>
                     </li>
                 </ol>
             </div>
         </div>
     </nav>
-
-    
