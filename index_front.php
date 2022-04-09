@@ -1,8 +1,8 @@
 <?php
 
-require_once(__DIR__ . '/Process/Connexion.php');
-include __DIR__ . '/Process/Autoload.php';
-include __DIR__ . '/View/Header.php';
+require_once(__DIR__.'/Process/Connexion.php');
+include __DIR__. '/Process/Autoload.php';
+include __DIR__. '/View/Header.php';
 
 ?>
 
@@ -18,29 +18,135 @@ include __DIR__ . '/View/Header.php';
 
 <!-- ***************************** POC BANNER CARDS *********************************** -->
 
+
+<section class="pt-5 pb-5">
+  <h1>Nos promotions !</h1>
+  <div class="container">
+    <div id="sales" class="row">
+      <div class="col-6">
+      </div>
+      <div class="col-6 text-right">
+        <a class="btn btn-light mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+          <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="btn btn-light mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+      <div class="col-12">
+        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="./IMG/morocco.jpg">
+                    <div class="card-body">
+                      <h3 class="card-title">Maroc / Afrique du Nord</h3>
+                      <h4>7 jours</h4>
+                      <p class="card-text"></p>
+                      <img style="height: 4rem; width: 4rem" src="./IMG/sales.png">
+
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="./IMG/fuji.jpg">
+                    <div class="card-body">
+                      <h3 class="card-title">Fuji / Japon</h3>
+                      <h4>20 jours</h4>
+                      <p class="card-text"></p>
+                      <img style="height: 4rem; width: 4rem" src="./IMG/sale.png">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="" src="./IMG/istan.jpg">
+                    <div class="card-body">
+                      <h3 class="card-title">Istanbul / Turquie</h3>
+                      <h4>12 jours</h4>
+                      <p class="card-text"></p>
+                      <img style="height: 4rem; width: 4rem" src="./IMG/sales.png">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="./IMG/canyon.jpg">
+                    <div class="card-body">
+                      <h3 class="card-title">Grand Canyon / USA</h3>
+                      <h4>28 days</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <img style="height: 4rem; width: 4rem" src="./IMG/sale.png">
+                    </div>
+
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="./IMG/agra.jpg">
+                    <div class="card-body">
+                      <h3 class="card-title">Agra / India</h3>
+                      <h4>24 days</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <img style="height: 4rem; width: 4rem" src="/IMG/sale.png">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <img class="img-fluid" alt="100%x280" src="./IMG/sydney.jpg">
+                    <div class="card-body">
+                      <h3 class="card-title">Sydney / Australia</h3>
+                      <h4>24 days</h4>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <img style="height: 4rem; width: 4rem" src="./IMG/sales.png">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ***************************** CARDS BOOK *********************************** -->
 
-<h1>Liste des destinations !</h1>
+<h1>Reserver maintenant !</h1>
 
 <ul id="book">
 
   <?php
 
   $destination = new DestinationManager($pdo);
-  //$allDestinations = $destination->getListGroupByName();
-  $allDestinations = $destination->getList();
+  $allDestinations = $destination->getListGroupByName();
 
-  foreach ($allDestinations as $destination) {
+  foreach ($allDestinations as $rowDestination) {
   ?>
-    <li class="booking-card" style="background-image:url(<?= $destination->getImages() ?>)">
+    <li class="booking-card" style="background-image:url(<?= $rowDestination->getImages() ?>)">
       <div class="book-container">
         <div class="content">
-          <a href='/View/showDestination.php?destinationLocation=<?= $destination->getLocation() ?>'><button class="btn">Afficher</button></a>
+          <a href='/ComparOperator/View/ListTo.php?destination=<?= $rowDestination->getLocation() ?>'><button class="btn">Reserver</button></a>
         </div>
       </div>
       <div class="informations-container">
-        <h2 class="title"><?= $destination->getLocation() ?></h2>
-        <p class="sub-title"><?= $destination->getDescription() ?></p>
+        <h2 class="title"><?= $rowDestination->getLocation() ?></h2>
+        <p class="sub-title"><?= $rowDestination->getDescription() ?></p>
         <div class="more-information">
           <div class="info-and-date-container">
             <div class="box info">
@@ -62,7 +168,7 @@ include __DIR__ . '/View/Header.php';
                   <path d="m424 280a24 24 0 1 0 -24-24 24.027 24.027 0 0 0 24 24zm0-32a8 8 0 1 1 -8 8 8.009 8.009 0 0 1 8-8z" fill="url(#f)" />
                 </g>
               </svg>
-              <p>From <?= $destination->getPrice() . " $" ?></p>
+              <p>From <?= $rowDestination->getPrice() . " $" ?></p>
             </div>
             <div class="box date">
               <svg height="512" viewBox="0 0 512 512" style="width:60px;height:60px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -95,8 +201,5 @@ include __DIR__ . '/View/Header.php';
 <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i class="fas fa-chevron-up"></i></a>
 
 <?php
-
-include '../../Footer.php';
-
-
+include './View/Footer.php';
 ?>
