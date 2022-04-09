@@ -1,37 +1,39 @@
 <?php
 
-<<<<<<< HEAD
-require_once('./Process/Connexion.php');
-include './Process/Autoload.php';
-include './View/Header.php';
-=======
-require_once (__DIR__.'/Process/Connexion.php');
-    include './Process/Autoload.php';
-    include './View/Header.php';
->>>>>>> 3418f17f71450e884daa9dd0844f9da07cc51990
+
+require_once(__DIR__ . '/Process/Connexion.php');
+include __DIR__ . '/Process/Autoload.php';
+include __DIR__ . '/View/Header.php';
 
 $destination = new DestinationManager($pdo);
-$allDestinations = $destination->getListGroupByName();
-?>
+$allDestinations = $destination->getList();
 
-<div class="Index2">
-      <?php $allDestination = $destinationManager->getListGroupByName($_GET['location']); ?>
-      <div class="title">
-            <h1><?= $_GET['location'] ?></h1>
-            <h2>A partir de <?= $allDestination[0]->getPrice() ?> Euros</h2>
-            <h4>Liste des Operateurs proposant ce voyage</h4>
-            <img src="asset/pngwing.com.png">
-            <?php foreach ($allDestination as $destination) {
+/*
+foreach ($allDestination as $destination) {
                   $operator = $manager->getLocation($destination->getIdTourOperator()); ?>
                   <a href="detail_operator.php?to=<?= $operator->getId() ?>">
                         <h3><?= $operator->getName() ?></h3>
                   </a>
+}
+*/
+?>
 
-            <?php } ?>
-      </div>
+<div class="Index2">
+      <?php
+      foreach ($allDestinations as $destination) {
+      ?>
+            <div class="title">
+                  <h2>A partir de <?= $destination->getPrice() ?> Euros</h2>
+                  <p><?= $destination->getDescription() ?></p>
+                  <!--<img src="IMG/alger.jpg">-->
+            </div>
+      <?php
+      }
+      ?>
+
 </div>
 
 <?php
 
-include 'partials/footer.php' ?>
+include './View/Footer.php'; ?>
 <br>

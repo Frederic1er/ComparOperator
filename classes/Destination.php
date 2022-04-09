@@ -14,6 +14,9 @@ class Destination
 
     /* CONSTRUCT */
 
+    // Location: value
+    // images: value
+    // description: value
     public function __construct(array $donnees)
     {
         $this->hydrate($donnees);
@@ -26,6 +29,7 @@ class Destination
         foreach ($donnees as $key => $value) {
 
             $method = 'set' . ucfirst($key);
+            // setLocation
 
             if (method_exists($this, $method)) {
                 $this->$method($value);
