@@ -1,6 +1,7 @@
 <?php
 
-class DestinationManager {
+class DestinationManager
+{
 
   private $db;
 
@@ -11,18 +12,18 @@ class DestinationManager {
 
   public function add(Destination $destination, TourOperator $tour_operator)
   {
-  
+
 
     $q = $this->db->prepare('INSERT INTO destinations(location, price, images, description, id_tour_operator) VALUES(:location, :price, :images, :description, :id_tour_operator)');
-    
+
     $q->bindValue(':location', $destination->getLocation());
     $q->bindValue(':price', $destination->getPrice());
     $q->bindValue(':images', $destination->getImages());
     $q->bindValue(':description', $destination->getDescription());
     $q->bindValue(':id_tour_operator', $tour_operator->getId());
-   
+
     $q->execute();
-    
+
     $destination->hydrate([
       'id' => $this->db->lastInsertId()
     ]);
@@ -33,62 +34,59 @@ class DestinationManager {
   public function getList()
   {
     $desti = [];
-    
+
     $q = $this->db->prepare('SELECT * FROM destinations');
     $q->execute();
-    
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-    {
+
+    while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
       echo '<br>';
-      array_push($desti, new Destination ($donnees));
+      array_push($desti, new Destination($donnees));
     }
-    
+
     return $desti;
   }
 
   public function getOneBy($param)
   {
-      if (is_int($param)) {
+    if (is_int($param)) {
+      $q = $this->db->prepare('SELECT * FROM destinations WHERE id=?');
+    } else {
+      $q = $this->db->prepare('SELECT * FROM destinations WHERE location=?');
+    }
 
-        $q = $this->db->prepare('SELECT * FROM destinations WHERE id=?');
-          
-        
-        $q->execute([$param]);
-        $destination = $q->fetch(PDO::FETCH_ASSOC);
-        return new Destination($destination);
-      }else{
-        $q = $this->db->prepare('SELECT * FROM destinations WHERE location=?');
-          
-        
-        $q->execute([$param]);
-        $destination = $q->fetch(PDO::FETCH_ASSOC);
-        return new Destination($destination);
-      }
-
+    $q->execute([$param]);
+    $destination = $q->fetch(PDO::FETCH_ASSOC);
+    return new Destination($destination);
   }
-    /* JOIN DESTINATIONS W/ TO */
 
-  public function getDestibyTo(Destination $destination)
+  /*
+    recupere le tour operateur en fonction de la destination
+    Parameters
+      * [Destination] destination dans laquelle il faut chercher le TO
+    Return
+      * [TourOperator] Tour Operator trouve
+  */
+  public function getToByDesti(Destination $destination)
   {
 
     $q = $this->db->prepare('SELECT * FROM tour_operators WHERE id=?');
-      
-    
-    $q->execute([$destination->getIdTourOperator()]);
-    $To = $q->fetchAll(PDO::FETCH_ASSOC);
-    $test = new TourOperator($To);
 
-    return $test;
+
+    $q->execute([$destination->getIdTourOperator()]);
+    $res = $q->fetchAll(PDO::FETCH_ASSOC);
+    $to = new TourOperator($res);
+
+    return $to;
   }
 
-  public function getDestinationByLocation($location)
+  public function getDestinationsByLocation($location)
   {
 
     $destinationCollection = [];
 
     $q = $this->db->prepare('SELECT * FROM destinations WHERE location=?');
-      
-    
+
+
     $q->execute([$location]);
     $destinations = $q->fetchAll(PDO::FETCH_ASSOC);
     foreach ($destinations as $destinationArray) {
@@ -98,7 +96,25 @@ class DestinationManager {
     return $destinationCollection;
   }
 
-  /* METHODE POUR PAS AVOIR DE DOUBLON */
+  /*
+    on return la destination la moins chere 
+    Parameters
+      * [String] localisation de la destination
+      * [Integer] Id du touOperator
+    Return
+      * [Destination] destination trouve
+  */
+  public function getCheapestDestination(String $location, Int $tourOperatorId)
+  {
+    $q = $this->db->prepare('SELECT * FROM destinations WHERE location=? AND id_tour_operator=? ORDER BY price asc');
+
+    $q->execute([$location, $tourOperatorId]);
+    $destinationData = $q->fetch(PDO::FETCH_ASSOC);
+
+    return new Destination($destinationData);
+  }
+
+  /* METHODE POUR NE PAS AVOIR DE DOUBLON */
 
   public function getListGroupByName()
   {
@@ -109,21 +125,16 @@ class DestinationManager {
 
     $q->execute();
 
-    while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-    {
-      array_push($destinations, new Destination ($donnees));
+    while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
+      array_push($destinations, new Destination($donnees));
     }
-      return $destinations;
+    return $destinations;
   }
 
-  public function deleteDestination(){
-
-    $q = $this->db->prepare('DELETE FROM membres WHERE `membres`.`id` = ? ');
-
-    
+  public function deleteDestination($id)
+  {
+    $q = $this->db->prepare('DELETE FROM destinations WHERE `destinations`.`id` = ? ');
+    $q->execute([$id]);
   }
   /* AJOUTER INFO FORM SELECT */
-
-  
-
 }

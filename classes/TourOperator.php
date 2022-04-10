@@ -14,6 +14,11 @@ class TourOperator {
         $this->hydrate($donnees);
     }
 
+    public function __toString()
+    {
+        return "name is: {$this->name}\n{$this->id}";
+    }
+
     /* HYDRATE */
 
     public function hydrate($donnees){
@@ -60,11 +65,13 @@ class TourOperator {
         $this->grade = $grade;
     }
 
-    public function isIsPremium (){
+    public function getIs_Premium()
+    {
         return $this->is_premium;
     }
 
-    public function setIs_premium ($is_premium){
+    public function setIs_Premium($is_premium)
+    {
         $this->is_premium = $is_premium;
     }
 
