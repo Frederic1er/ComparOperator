@@ -20,6 +20,7 @@
          
        foreach ($arrayDestination as $destination){ 
            $to =  $test->getDestibyTo($destination);
+           var_dump($destination);
            ?>
 
             <div class="container card-list">
@@ -48,7 +49,7 @@
                             
                             <div class="data">
                                 <div class="content">
-                                    <h5 class="type"><?=$destination->getPrice().' $'?></h5>
+                                    <h5 class="type"><?=$destination->getPrice() .' €'?></h5>
                                     <h1 class="title"><a><?=$to->getName()?></a></h1>
                                     <p class="card-text"><?=$to->getGrade().' / 5 ⭐'?></p>
                                     <p class="text"><?=$destination->getDescription()?></p>

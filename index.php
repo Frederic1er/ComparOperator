@@ -1,15 +1,15 @@
 <?php
 
-require_once(__DIR__.'/Process/Connexion.php');
-include __DIR__. '/Process/Autoload.php';
-include __DIR__. '/View/Header.php';
+require_once(__DIR__ . '/Process/Connexion.php');
+include __DIR__ . '/Process/Autoload.php';
+include __DIR__ . '/View/Header.php';
 
 ?>
 
 
 <main class="about-section">
   <div id="about" class="about">
-     
+
     <h1>A Propos de nous</h1>
     <img class="gif" src="./IMG/voyage.gif">
     <p>Grâce à son expérience engrangée durant plusieurs années sur le terrain, l’équipe Riad&FredVisor vous fait bénéficier de son excellente connaissance du territoire.</p>
@@ -138,19 +138,20 @@ include __DIR__. '/View/Header.php';
   <?php
 
   $destination = new DestinationManager($pdo);
-  $allDestinations = $destination->getListGroupByName();
+  //$allDestinations = $destination->getListGroupByName();//
+  $allDestinations = $destination->getList();
 
-  foreach ($allDestinations as $rowDestination) {
+  foreach ($allDestinations as $destination) {
   ?>
-    <li class="booking-card" style="background-image:url(<?= $rowDestination->getImages() ?>)">
+    <li class="booking-card" style="background-image:url(<?= $destination->getImages() ?>)">
       <div class="book-container">
         <div class="content">
-          <a href='/ComparOperator/View/ListTo.php?destination=<?= $rowDestination->getLocation() ?>'><button class="btn">Afficher</button></a>
+          <a href='/ComparOperator/View/ListTo.php?destination=<?= $destination->getLocation() ?>'><button class="btn">Afficher</button></a>
         </div>
       </div>
       <div class="informations-container">
-        <h2 class="title"><?= $rowDestination->getLocation() ?></h2>
-        <p class="sub-title"><?= $rowDestination->getDescription() ?></p>
+        <h2 class="title"><?= $destination->getLocation() ?></h2>
+        <p class="sub-title"><?= $destination->getDescription() ?></p>
         <div class="more-information">
           <div class="info-and-date-container">
             <div class="box info">
@@ -172,7 +173,9 @@ include __DIR__. '/View/Header.php';
                   <path d="m424 280a24 24 0 1 0 -24-24 24.027 24.027 0 0 0 24 24zm0-32a8 8 0 1 1 -8 8 8.009 8.009 0 0 1 8-8z" fill="url(#f)" />
                 </g>
               </svg>
-              <p>Pour une sommes de <h5 class="type"><?=$rowDestination->getPrice().' $'?></h5></p>
+              <p>Pour une sommes de
+              <h5 class="type"><?= $destination->getPrice() . ' €' ?></h5>
+              </p>
             </div>
             <div class="box date">
               <svg height="512" viewBox="0 0 512 512" style="width:60px;height:60px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

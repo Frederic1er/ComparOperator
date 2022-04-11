@@ -80,6 +80,19 @@ class DestinationManager {
 
     return $test;
   }
+  public function getCheapestDestination(String $location, Int $tourOperatorId)
+  {
+    $q = $this->db->prepare('SELECT * FROM destinations WHERE location=? AND id_tour_operator=? ORDER BY price asc');
+
+    $q->execute([$location, $tourOperatorId]);
+    $destinationData = $q->fetch(PDO::FETCH_ASSOC);
+
+    return new Destination($destinationData);
+  }
+
+
+
+
 
   public function getDestinationByLocation($location)
   {

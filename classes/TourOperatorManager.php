@@ -65,7 +65,23 @@ class TourOperatorManager {
       $q->bindValue(':id', $tour_operator->getId());
       $q->execute();
     }
-  
+    public function getTourOperatorsByDestinationLocation(String $destinationLocation)
+  {
+    // 'GROUP BY' is used to avoid multiple times of same tour operator
+    // 'INNER JOIN' because we search on 2 different tables
+    $q = $this->db->prepare('SELECT tour_operators.* FROM tour_operators INNER JOIN destinations ON destinations.id_tour_operator=tour_operators.id WHERE destinations.location=? GROUP BY tour_operators.id');
+
+    $q->execute([$destinationLocation]);
+    $res = $q->fetchAll(PDO::FETCH_ASSOC);
+    $tourOperators = [];
+    foreach ($res as $toData) {
+      array_push($tourOperators, new TourOperator($toData));
+    }
+    return $tourOperators;
+  }
+
+
+
     /* METHODE POUR UPDATE UN TO PREMIUM OU PAS */
   
     public function UpdateTO(TourOperator $tour_operator){
