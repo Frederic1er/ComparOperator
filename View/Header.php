@@ -11,50 +11,49 @@ include __DIR__ . '/../env.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ComparOperator</title>
-    <!-- CSS only -->
+    <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="icon" href="./IMG/canyon.jpg"/>
+    <title>RF ComparOperator</title>
     <link rel="stylesheet" href="/comparoperator/Css/main.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">RF operator</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= $rootFolder ?>/index.php">Acceuil</a>
-                    </li>
-                    <li class="nav-item">
+<nav id="anchor" class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="./index.php">Riad&FredVisor <i class="fas fa-plane-departure"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-                        <a class="nav-link active" href="<?= $rootFolder ?>/View/voyage.php">destinations</a>
+  <div class="collapse navbar-collapse" data-spy="scroll" data-target="#anchor">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="./index.php">Acceuil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about">A Propos de nous</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#book">Reservation</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/ComparOperator//View/voyage.php">Destinations</a>
+      </li>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="/ComparOperator//Admin.php">Admin</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Nos meilleurs offres</a>
-                    </li>
-                    <li class="nav-item">
+<div class="hero">
 
-                        <a class="nav-link active" href="<?= $rootFolder ?>/Admin.php">Admin</a>
+  <h1><span>Bienvenue sur</span><br>Riad&FredVisor</h1>
 
-                    </li>
+  <div class="mouse">
+      <span></span>
+  </div>
 
-                </ul>
-                <ol>
-                    <li class="nav-item">
-
-                        <div class="btn btn-primary">Se connecter</div>
-
-                        <a class="nav-link active" href="<?= $rootFolder ?>/Process/Inscription.php">s'inscrire</a>
-
-
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </nav>
+</div>

@@ -91,7 +91,7 @@
                         <img src="./IMG/to.png" border="0">
                         <h2 class="text-center">Nouveau Tour Operateur</h2>
 
-                        <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="Admin.php">
+                        <form id="register-form" role="form" autocomplete="off" class="form" method="post" action="./Admin.php">
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
@@ -128,7 +128,7 @@
                         <img src="./IMG/laptop.png" border="0">
                         <h2 class="text-center">Nouvelle destination</h2>
 
-                        <form id="register-form2" role="form" autocomplete="off" class="form" action="Admin.php" method="post">
+                        <form id="register-form2" role="form" autocomplete="off" class="form" action="./Admin.php" method="post">
                             <div class="form-group">
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
@@ -184,7 +184,7 @@
                         <img src="./IMG/trip.png" border="0">
                         <h2 class="text-center">Nouveau Voyage</h2>
 
-                        <form id="register-form3" role="form" action="Admin.php" method="post" class="form">
+                        <form id="register-form3" role="form" action="./Admin.php" method="post" class="form">
                             <div class="form-group">
                                 <div class="input-group">
                                     <select class="form-control" id="sel1" name="location">
@@ -232,7 +232,7 @@
                         <img src="./IMG/trip.png" border="0">
                         <h2 class="text-center">Supprimer un TO ou Voyage</h2>
 
-                        <form id="register-form3" role="form" action="Admin.php" method="post" class="form">
+                        <form id="register-form3" role="form" action="./Admin.php" method="post" class="form">
                             <div class="form-group">
                                 <div class="input-group">
                                     <select name="deletedestination" class="form-control" id="sel1">
