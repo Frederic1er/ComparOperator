@@ -1,22 +1,30 @@
 <?php
 
-require_once (__DIR__.'/Process/Connexion.php');
-    include './Process/Autoload.php';
-    include './View/Header.php';
+include __DIR__. '../Process/Autoload.php';
 
-$destination = new DestinationManager($pdo);
-  $allDestinations = $destination->getListGroupByName();
+    require_once(__DIR__."../Process/Connexion.php");
+
+    /* ADMIN */
+
+    
+
+    include  './View/Header.php';
+
+    $destination = new DestinationManager($pdo);
+    $allDestinations = $destinations->getListGroupByName();
+  
+    foreach ($allDestinations as $destinations)
 ?>
 
       <div class="Index2">
-            <?php $allDestination = $destinationManager->getListGroupByName($_GET['location']);?>
+            <?php $allDestination = $destination->getListGroupByName($_GET['location']);?>
             <div class="title">
                   <h1><?=$_GET['location']?></h1>
-                  <h2>A partir de <?= $allDestination[0]->getPrice()?> Euros</h2> 
+                  <h2>A partir de <?= $allDestinations[0]->getPrice()?> Euros</h2> 
                   <h4>Liste des Operateurs proposant ce voyage</h4>
-                  <img src="asset/pngwing.com.png"> 
-                  <?php foreach ($allDestination as $destination){
-                        $operator = $manager->getLocation($destination->getIdTourOperator()); ?>
+                  <img src=""> 
+                  <?php foreach ($allDestination as $destinations){
+                        $operator = $destinations->getLocation($destinations->getIdTourOperator()); ?>
                         <a href="detail_operator.php?to=<?=$operator->getId()?>">
                         <h3><?= $operator->getName()?></h3> </a>
                   
@@ -26,7 +34,7 @@ $destination = new DestinationManager($pdo);
 
      <?php
 
-include 'partials/footer.php'?>
+include './Footer.php'?>
 <br>
 
 
