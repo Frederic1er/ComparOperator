@@ -57,6 +57,43 @@ class ReviewManager {
 
     return $reviewCollection;
   }
+  public function addUnique(Review $review, TourOperator $tour_operator)
+  {
+    $reviewExist = $this->existsReviewFor($review->getAuthor(), $tour_operator->getId());
+    //TODO: function unique is not working. Count does not work correctly
+    if ($reviewExist) {
+      $this->add($review, $tour_operator);
+    } else {
+      $this->add($review, $tour_operator);
+    }
+  }
+  public function getReviewsByTourOperator($tour_operator)
+  {
+
+    $reviews = [];
+
+    $q = $this->db->prepare('SELECT * FROM reviews WHERE id_tour_operator=?');
+    $q->execute([$tour_operator->getId()]);
+    $res = $q->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($res as $reviewData) {
+      array_push($reviews, new Review($reviewData));
+    }
+
+    return $reviews;
+  }
+
+  public function existsReviewFor(String $author, Int $tourOperatorId)
+  {
+    $q = $this->db->prepare('SELECT COUNT(*) FROM reviews WHERE id_tour_operator=? AND author=?');
+    $q->execute([$tourOperatorId, $author]);
+    $res = $q->fetch();
+    if (count($res) > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
   public function getList(TourOperator $tour_operator)
   {

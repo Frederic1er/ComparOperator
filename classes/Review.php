@@ -8,8 +8,6 @@ class Review{
     protected $id_tour_operator;
     
    
-
-
     /* CONSTRUCT */
 
     public function __construct(array $donnees){

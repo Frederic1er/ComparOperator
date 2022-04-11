@@ -32,7 +32,7 @@ include __DIR__ . '/../env.php';
         <a class="nav-link" href="./index.php">Acceuil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#about">A Propos de nous</a>
+        <a class="nav-link" href="/ComparOperator/View/showDestination.php">Promotions</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#book">Reservation</a>
